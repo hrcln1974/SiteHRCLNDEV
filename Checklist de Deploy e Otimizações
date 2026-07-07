@@ -1,0 +1,73 @@
+# ✅ CHECKLIST DE DEPLOY - HRCLN DEV
+
+## PRÉ-DEPLOY
+- [ ] Substituir todos os placeholders (emails, telefones, links)
+- [ ] Adicionar imagens reais do portfólio
+- [ ] Configurar variáveis de ambiente (.env.local)
+- [ ] Testar todos os formulários
+- [ ] Validar links de redes sociais
+- [ ] Configurar EmailJS ou serviço de email
+- [ ] Adicionar Google Analytics ID
+- [ ] Configurar favicon e ícones PWA
+- [ ] Criar imagens Open Graph (1200x630px)
+
+## SEO
+- [ ] Sitemap.xml configurado
+- [ ] Robots.txt configurado
+- [ ] Meta tags completas
+- [ ] Schema.org implementado
+- [ ] URLs canônicas
+- [ ] Alt text em todas as imagens
+- [ ] Heading hierarchy (H1-H6)
+- [ ] Internal linking
+
+## PERFORMANCE
+- [ ] Lighthouse Score 95+
+- [ ] PageSpeed Insights 95+
+- [ ] Imagens otimizadas (WebP/AVIF)
+- [ ] Lazy loading implementado
+- [ ] Code splitting
+- [ ] Minificação CSS/JS
+- [ ] Preload de fontes críticas
+- [ ] Cache configurado
+
+## ACESSIBILIDADE
+- [ ] Contraste adequado (WCAG AA)
+- [ ] ARIA labels
+- [ ] Navegação por teclado
+- [ ] Screen reader friendly
+- [ ] Focus visible
+- [ ] Textos alternativos
+
+## RESPONSIVIDADE
+- [ ] Mobile (320px+)
+- [ ] Tablet (768px+)
+- [ ] Desktop (1024px+)
+- [ ] 4K (1920px+)
+- [ ] Touch targets 44x44px
+
+## SEGURANÇA
+- [ ] HTTPS configurado
+- [ ] Headers de segurança
+- [ ] CORS configurado
+- [ ] Rate limiting
+- [ ] Input sanitization
+- [ ] LGPD compliance
+
+## TESTES
+- [ ] Chrome/Edge
+- [ ] Firefox
+- [ ] Safari
+- [ ] Mobile browsers
+- [ ] Formulários funcionando
+- [ ] Links externos
+- [ ] Botões de compartilhamento
+
+## PÓS-DEPLOY
+- [ ] Google Search Console
+- [ ] Bing Webmaster Tools
+- [ ] Google Analytics
+- [ ] Facebook Pixel (opcional)
+- [ ] Monitoring (Sentry/LogRocket)
+- [ ] Backup configurado
+- [ ] CDN configurado (Vercel/Cloudflare)

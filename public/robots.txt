@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://hrclndev.com.br
+
+# Sitemaps
+Sitemap: https://hrclndev.com.br/sitemap.xml

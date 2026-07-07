@@ -1,0 +1,33 @@
+# HRCLN DEV - Website Premium
+
+Site institucional premium desenvolvido com Next.js 14, React, TypeScript e Tailwind CSS.
+
+## 🚀 Tecnologias
+
+- **Next.js 14** - Framework React de última geração
+- **React 18** - Biblioteca JavaScript para interfaces
+- **TypeScript** - Superset JavaScript tipado
+- **Tailwind CSS** - Framework CSS utility-first
+- **Framer Motion** - Biblioteca de animações
+- **GSAP** - Animações avançadas
+- **React Hook Form** - Gerenciamento de formulários
+- **EmailJS** - Envio de emails
+- **React Icons** - Biblioteca de ícones
+
+## 📦 Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/hrclndev/website.git
+
+# Entre na pasta
+cd website
+
+# Instale as dependências
+npm install
+
+# Configure as variáveis de ambiente
+cp .env.example .env.local
+
+# Inicie o servidor de desenvolvimento
+npm run dev
