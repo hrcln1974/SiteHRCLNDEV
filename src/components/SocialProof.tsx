@@ -3,12 +3,11 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
-  HiUsers,
-  HiTrendingUp,
-  HiStar,
+  HiCode,
+  HiDesktopComputer,
   HiLightningBolt,
+  HiStar,
 } from 'react-icons/hi'
-import { useEffect, useState } from 'react'
 
 const SocialProof = () => {
   const [ref, inView] = useInView({
@@ -16,161 +15,89 @@ const SocialProof = () => {
     threshold: 0.1,
   })
 
-  const [activeUsers, setActiveUsers] = useState(12)
-  const [currentActivity, setCurrentActivity] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveUsers(Math.floor(Math.random() * 8) + 10)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const socialStats = [
+  const stats = [
     {
-      icon: <HiUsers className="text-4xl" />,
-      value: '50+',
-      label: 'Clientes Ativos',
+      icon: <HiDesktopComputer className="text-4xl" />,
+      value: '05+',
+      label: 'Projetos Publicados',
     },
     {
-      icon: <HiTrendingUp className="text-4xl" />,
-      value: '150%',
-      label: 'Crescimento Médio',
-    },
-    {
-      icon: <HiStar className="text-4xl" />,
-      value: '5.0',
-      label: 'Avaliação Média',
+      icon: <HiCode className="text-4xl" />,
+      value: '08+',
+      label: 'Tecnologias Estudadas',
     },
     {
       icon: <HiLightningBolt className="text-4xl" />,
-      value: '95+',
-      label: 'Score Performance',
+      value: '10+',
+      label: 'Projetos em Desenvolvimento',
+    },
+    {
+      icon: <HiStar className="text-4xl" />,
+      value: '100%',
+      label: 'Compromisso e Dedicação',
     },
   ]
-
-  const recentActivity = [
-    '🎉 João S. acabou de contratar um Site Institucional',
-    '✨ Maria O. recebeu proposta para E-commerce',
-    '🚀 Pedro A. aprovou projeto de Landing Page',
-    '💎 Ana C. solicitou orçamento de Sistema Web',
-    '🔥 Ricardo M. fechou contrato para consultoria',
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentActivity(
-        (prev) => (prev + 1) % recentActivity.length
-      )
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [recentActivity.length])
-
 
   return (
     <section className="py-20 relative overflow-hidden">
 
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-dark -z-10" />
 
-
       <div
-        className="container mx-auto px-4"
         ref={ref}
+        className="container mx-auto px-4"
       >
 
-        {/* Usuários online */}
         <motion.div
-          className="mb-12 flex justify-center"
+          className="text-center mb-12"
           initial={{
             opacity: 0,
             y: -20,
           }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
+          animate={
+            inView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
           transition={{
-            duration: 0.5,
+            duration: 0.6,
           }}
         >
 
-          <motion.div
-            className="glass px-6 py-3 rounded-full flex items-center gap-3"
-            animate={{
-              scale: [1, 1.05, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-            }}
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Minha Jornada na Tecnologia
+          </h2>
 
-            <div className="relative">
-
-              <div
-                className="
-                w-3 h-3
-                bg-green-500
-                rounded-full
-                animate-pulse
-                "
-              />
-
-              <div
-                className="
-                absolute
-                inset-0
-                w-3 h-3
-                bg-green-500
-                rounded-full
-                animate-ping
-                "
-              />
-
-            </div>
-
-
-            <span className="text-white font-inter font-semibold">
-              {activeUsers} pessoas visualizando agora
-            </span>
-
-          </motion.div>
+          <p className="text-gray max-w-2xl mx-auto">
+            Desenvolvedor Front-end em formação, criando experiências digitais
+            modernas, responsivas e focadas em resultados.
+          </p>
 
         </motion.div>
 
 
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-        {/* Estatísticas */}
-        <div
-          className="
-          grid
-          grid-cols-2
-          md:grid-cols-4
-          gap-6
-          mb-12
-          "
-        >
-
-          {socialStats.map((stat, index) => (
+          {stats.map((item,index)=>(
 
             <motion.div
 
-              key={stat.label}
+              key={item.label}
 
               className="
-              glass
-              p-6
-              rounded-xl
-              text-center
+              glass 
+              rounded-xl 
+              p-6 
+              text-center 
               card-hover
               "
 
               initial={{
                 opacity:0,
-                scale:0.5,
+                scale:0.8,
               }}
 
               animate={
@@ -189,65 +116,34 @@ const SocialProof = () => {
                 delay:index * 0.1,
               }}
 
-              whileHover={{
-                y:-5,
-              }}
-
             >
 
-              <motion.div
-
-                className="
-                text-primary
-                mb-3
-                flex
-                justify-center
-                "
-
-                whileHover={{
-                  scale:1.2,
-                  rotate:360,
-                }}
-
-                transition={{
-                  duration:0.5,
-                }}
-
-              >
-
-                {stat.icon}
-
-              </motion.div>
-
-
-
-              <div
-                className="
-                text-3xl
-                md:text-4xl
-                font-bold
-                font-space
-                gradient-text
-                mb-1
-                "
-              >
-
-                {stat.value}
-
+              <div className="
+              flex 
+              justify-center 
+              mb-4 
+              text-primary
+              ">
+                {item.icon}
               </div>
 
 
-              <div
-                className="
-                text-gray
-                font-inter
-                text-sm
-                "
-              >
+              <h3 className="
+              text-3xl
+              font-bold
+              gradient-text
+              ">
+                {item.value}
+              </h3>
 
-                {stat.label}
 
-              </div>
+              <p className="
+              text-gray
+              text-sm
+              mt-2
+              ">
+                {item.label}
+              </p>
 
 
             </motion.div>
@@ -258,16 +154,16 @@ const SocialProof = () => {
 
 
 
-        {/* Atividade recente */}
-
         <motion.div
 
           className="
+          mt-12
           glass
-          p-6
           rounded-xl
-          max-w-2xl
+          p-6
+          max-w-3xl
           mx-auto
+          text-center
           "
 
           initial={{
@@ -287,148 +183,34 @@ const SocialProof = () => {
           }
 
           transition={{
-            duration:0.5,
             delay:0.5,
           }}
 
         >
 
-          <div
-            className="
-            flex
-            items-center
-            gap-3
-            "
-          >
-
-            <div
-              className="
-              w-2
-              h-2
-              bg-primary
-              rounded-full
-              animate-pulse
-              "
-            />
+          <p className="
+          text-white
+          text-lg
+          leading-relaxed
+          ">
+            "Transformando ideias em soluções digitais através do código,
+            design e tecnologia."
+          </p>
 
 
-            <span className="text-gray font-inter text-sm">
-              Atividade Recente
-            </span>
-
-
-          </div>
-
-
-          <motion.div
-
-            key={currentActivity}
-
-            className="
-            mt-4
-            text-white
-            font-inter
-            text-lg
-            "
-
-            initial={{
-              opacity:0,
-              x:-20,
-            }}
-
-            animate={{
-              opacity:1,
-              x:0,
-            }}
-
-            transition={{
-              duration:0.5,
-            }}
-
-          >
-
-            {recentActivity[currentActivity]}
-
-
-          </motion.div>
-
-
-        </motion.div>
-
-
-
-
-        {/* Selos de confiança */}
-
-        <motion.div
-
-          className="
-          mt-12
-          flex
-          flex-wrap
-          justify-center
-          items-center
-          gap-8
-          "
-
-          initial={{
-            opacity:0,
-            y:20,
-          }}
-
-          animate={
-            inView
-            ?
-            {
-              opacity:1,
-              y:0,
-            }
-            :
-            {}
-          }
-
-          transition={{
-            duration:0.5,
-            delay:0.7,
-          }}
-
-        >
-
-          {[
-            '🏆 Aprovado por 50+ Empresas',
-            '⚡ Entrega em até 3 Semanas',
-            '🛡️ Garantia de Satisfação',
-            '💯 98% de Taxa de Sucesso',
-          ].map((badge,index)=>(
-
-            <motion.div
-
-              key={index}
-
-              className="
-              text-gray
-              font-inter
-              text-sm
-              "
-
-              whileHover={{
-                scale:1.1,
-              }}
-
-            >
-
-              {badge}
-
-            </motion.div>
-
-          ))}
-
+          <span className="
+          block
+          mt-4
+          text-primary
+          font-semibold
+          ">
+            — HRCLN DEV
+          </span>
 
         </motion.div>
 
 
       </div>
-
 
     </section>
   )
