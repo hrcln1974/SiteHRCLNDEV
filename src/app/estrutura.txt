@@ -1,0 +1,36 @@
+hrcln-dev/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── globals.css
+│   │   └── metadata.ts
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Services.tsx
+│   │   ├── About.tsx
+│   │   ├── Portfolio.tsx
+│   │   ├── Stats.tsx
+│   │   ├── Process.tsx
+│   │   ├── Technologies.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── CTA.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Footer.tsx
+│   │   ├── WhatsAppButton.tsx
+│   │   ├── BackToTop.tsx
+│   │   ├── Loader.tsx
+│   │   └── Particles.tsx
+│   ├── lib/
+│   │   └── utils.ts
+│   └── types/
+│       └── index.ts
+├── public/
+│   ├── robots.txt
+│   └── sitemap.xml
+├── package.json
+├── tsconfig.json
+├── tailwind.config.ts
+├── next.config.js
+└── postcss.config.js
