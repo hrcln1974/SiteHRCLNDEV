@@ -20,18 +20,18 @@ const Testimonials = () => {
       rating: 5,
       text: 'A HRCLN DEV superou todas as nossas expectativas. O site ficou incrível e nossa conversão aumentou 150%. Profissionalismo e qualidade incomparáveis!',
     },
-    {
-      id: 2,
-      name: '
-            name: 'Ana Oliveira',
-      position: 'Diretora de Marketing - Inovare',
-      image: '👩‍💼',
-      rating: 5,
-      text: 'Trabalho impecável! A equipe entendeu perfeitamente nossa visão e entregou um projeto que transformou nosso negócio digital. Recomendo totalmente!',
-    },
-    {
-      id: 3,
-      name: 'Ricardo Santos',
+    
+ {
+  id: 2,
+  name: 'Ana Oliveira',
+  position: 'Diretora de Marketing - Inovare',
+  image: '👩‍💼',
+  rating: 5,
+  text: 'Trabalho impecável! A equipe entendeu perfeitamente nossa visão e entregou um projeto que transformou nosso negócio digital. Recomendo totalmente!',
+},
+{
+  id: 3,
+  name: 'Ricardo Santos',
       position: 'Fundador - StartupXYZ',
       image: '👨‍💻',
       rating: 5,

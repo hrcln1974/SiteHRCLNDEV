@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer'
 import {
   HiLightBulb,
   HiPencil,
-  HiCode,
+  HiCodeBracket,
   HiCheckCircle,
   HiRocketLaunch,
 } from 'react-icons/hi2'
@@ -32,7 +32,7 @@ const Process = () => {
       color: '#3B82F6',
     },
     {
-      icon: <HiCode className="text-5xl" />,
+      icon: <HiCodeBracket className="text-5xl" />,
       title: 'Desenvolvimento',
       description:
         'Codificamos com as melhores tecnologias e práticas, garantindo qualidade e performance.',
