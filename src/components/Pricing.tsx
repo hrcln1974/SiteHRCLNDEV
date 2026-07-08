@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { HiCheck, HiX, HiStar } from 'react-icons/hi'
+import { HiCheck, HiArrowRight } from 'react-icons/hi'
 
 const Pricing = () => {
   const [ref, inView] = useInView({
@@ -10,56 +10,54 @@ const Pricing = () => {
     threshold: 0.1,
   })
 
-  const plans = [
+  const services = [
     {
       name: 'Landing Page',
-      price: '2.500',
-      description: 'Ideal para captura de leads e campanhas',
-      popular: false,
+      description: 'Página única otimizada para conversão',
+      icon: '📄',
       features: [
-        { text: 'Design Responsivo Premium', included: true },
-        { text: 'Até 3 Seções', included: true },
-        { text: 'Formulário de Contato', included: true },
-        { text: 'SEO Básico', included: true },
-        { text: 'Google Analytics', included: true },
-        { text: 'Tempo de Entrega: 1 semana', included: true },
-        { text: 'CMS Personalizado', included: false },
-        { text: 'Integração E-commerce', included: false },
+        'Design Responsivo Premium',
+        'Formulário de Contato',
+        'SEO Básico Implementado',
+        'Google Analytics',
+        'Performance 95+',
+        'Entrega em 1-2 semanas',
       ],
+      highlight: false,
     },
     {
       name: 'Site Institucional',
-      price: '5.000',
-      description: 'Perfeito para empresas e negócios',
-      popular: true,
+      description: 'Site completo para sua empresa',
+      icon: '🌐',
       features: [
-        { text: 'Design Responsivo Premium', included: true },
-        { text: 'Até 8 Páginas', included: true },
-        { text: 'CMS Personalizado', included: true },
-        { text: 'Blog Integrado', included: true },
-        { text: 'SEO Avançado', included: true },
-        { text: 'Google Analytics', included: true },
-        { text: 'Formulários Múltiplos', included: true },
-        { text: 'Tempo de Entrega: 3 semanas', included: true },
-        { text: 'Integração E-commerce', included: false },
+        'Design Responsivo Premium',
+        'Até 8 Páginas',
+        'CMS Personalizado',
+        'Blog Integrado (opcional)',
+        'SEO Avançado',
+        'Google Analytics',
+        'Formulários Múltiplos',
+        'Performance 95+',
+        'Entrega em 3-4 semanas',
       ],
+      highlight: true,
     },
     {
       name: 'E-commerce',
-      price: '15.000',
-      description: 'Loja virtual completa e profissional',
-      popular: false,
+      description: 'Loja virtual profissional',
+      icon: '🛍️',
       features: [
-        { text: 'Design Responsivo Premium', included: true },
-        { text: 'Produtos Ilimitados', included: true },
-        { text: 'Painel Administrativo', included: true },
-        { text: 'Integração de Pagamentos', included: true },
-        { text: 'Gestão de Estoque', included: true },
-        { text: 'SEO E-commerce', included: true },
-        { text: 'Sistema de Cupons', included: true },
-        { text: 'Email Marketing', included: true },
-        { text: 'Tempo de Entrega: 8 semanas', included: true },
+        'Design Responsivo Premium',
+        'Catálogo de Produtos',
+        'Painel Administrativo',
+        'Integração de Pagamentos',
+        'Gestão de Estoque',
+        'SEO E-commerce',
+        'Cupons de Desconto',
+        'Performance 95+',
+        'Entrega em 6-8 semanas',
       ],
+      highlight: false,
     },
   ]
 
@@ -78,25 +76,25 @@ const Pricing = () => {
           transition={{ duration: 0.5 }}
         >
           <span className="text-primary font-inter font-semibold text-sm uppercase tracking-wider">
-            Investimento
+            Serviços
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space mt-4 mb-6">
-            Planos e{' '}
-            <span className="gradient-text">Preços</span>
+            Soluções{' '}
+            <span className="gradient-text">Sob Medida</span>
           </h2>
           <p className="text-gray text-lg md:text-xl max-w-3xl mx-auto font-inter">
-            Escolha o plano ideal para o seu negócio. Todos incluem suporte
-            técnico e garantia de satisfação.
+            Cada projeto é único. Solicite um orçamento personalizado de acordo
+            com suas necessidades e objetivos.
           </p>
         </motion.div>
 
-        {/* Pricing Cards */}
+        {/* Services Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {plans.map((plan, index) => (
+          {services.map((service, index) => (
             <motion.div
-              key={plan.name}
-              className={`glass p-8 rounded-2xl relative ${
-                plan.popular ? 'border-2 border-primary' : ''
+              key={service.name}
+              className={`glass p-8 rounded-2xl relative card-hover ${
+                service.highlight ? 'border-2 border-primary' : ''
               }`}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -104,59 +102,48 @@ const Pricing = () => {
               whileHover={{ y: -10 }}
             >
               {/* Popular Badge */}
-              {plan.popular && (
+              {service.highlight && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-blue px-6 py-2 rounded-full flex items-center gap-2 glow">
-                    <HiStar className="text-white" />
+                  <div className="bg-gradient-blue px-6 py-2 rounded-full glow">
                     <span className="text-white font-inter font-semibold text-sm">
-                      Mais Popular
+                      ⭐ Mais Solicitado
                     </span>
                   </div>
                 </div>
               )}
 
-              {/* Plan Name */}
+              {/* Icon */}
+              <div className="text-5xl mb-4">{service.icon}</div>
+
+              {/* Service Name */}
               <h3 className="text-2xl font-bold font-space text-white mb-2 mt-4">
-                {plan.name}
+                {service.name}
               </h3>
 
               {/* Description */}
               <p className="text-gray font-inter text-sm mb-6">
-                {plan.description}
+                {service.description}
               </p>
 
               {/* Price */}
-              <div className="mb-8">
-                <div className="flex items-baseline">
-                  <span className="text-gray font-inter text-lg mr-1">R$</span>
-                  <span className="text-5xl font-bold font-space gradient-text">
-                    {plan.price}
-                  </span>
+              <div className="mb-8 pb-8 border-b border-gray/20">
+                <div className="text-4xl font-bold font-space gradient-text mb-2">
+                  Sob Consulta
                 </div>
                 <span className="text-gray font-inter text-sm">
-                  Pagamento único
+                  Orçamento personalizado
                 </span>
               </div>
 
               {/* Features */}
               <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, i) => (
+                {service.features.map((feature, i) => (
                   <li
                     key={i}
                     className="flex items-start gap-3 font-inter text-sm"
                   >
-                    {feature.included ? (
-                      <HiCheck className="text-primary text-xl flex-shrink-0 mt-0.5" />
-                    ) : (
-                      <HiX className="text-gray/50 text-xl flex-shrink-0 mt-0.5" />
-                    )}
-                    <span
-                      className={
-                        feature.included ? 'text-gray' : 'text-gray/50'
-                      }
-                    >
-                      {feature.text}
-                    </span>
+                    <HiCheck className="text-primary text-xl flex-shrink-0 mt-0.5" />
+                    <span className="text-gray">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -164,15 +151,16 @@ const Pricing = () => {
               {/* CTA Button */}
               <motion.a
                 href="#contact"
-                className={`block w-full py-4 rounded-full font-inter font-semibold text-center transition-all duration-300 ${
-                  plan.popular
+                className={`flex items-center justify-center gap-2 w-full py-4 rounded-full font-inter font-semibold text-center transition-all duration-300 ${
+                  service.highlight
                     ? 'bg-gradient-blue text-white glow'
                     : 'glass-white text-white hover:bg-primary/10'
                 }`}
                 whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Começar Agora
+                Solicitar Orçamento
+                <HiArrowRight />
               </motion.a>
             </motion.div>
           ))}
@@ -180,21 +168,25 @@ const Pricing = () => {
 
         {/* Additional Info */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-16 text-center glass p-8 rounded-2xl max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <p className="text-gray font-inter mb-4">
-            Precisa de algo personalizado? 
+          <h3 className="text-2xl font-bold font-space text-white mb-4">
+            Precisa de algo diferente?
+          </h3>
+          <p className="text-gray font-inter mb-6 leading-relaxed">
+            Cada projeto é único e merece atenção especial. Entre em contato e
+            vamos criar uma solução personalizada que atenda perfeitamente suas
+            necessidades e orçamento.
           </p>
-          <motion.a
-            href="#contact"
-            className="text-primary font-inter font-semibold hover:underline"
-            whileHover={{ scale: 1.05 }}
-          >
-            Solicite um orçamento customizado →
-          </motion.a>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray font-inter">
+            <span>✓ Orçamento sem compromisso</span>
+            <span>✓ Primeira consulta gratuita</span>
+            <span>✓ Resposta em até 24h</span>
+            <span>✓ Parcelamento disponível</span>
+          </div>
         </motion.div>
       </div>
     </section>

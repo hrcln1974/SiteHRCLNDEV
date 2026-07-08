@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { HiShieldCheck, HiClock, HiTrendingUp, HiRefresh } from 'react-icons/hi'
+import { HiShieldCheck, HiClock, HiCode, HiSupport } from 'react-icons/hi'
 
 const Guarantee = () => {
   const [ref, inView] = useInView({
@@ -10,33 +10,33 @@ const Guarantee = () => {
     threshold: 0.1,
   })
 
-  const guarantees = [
+  const commitments = [
     {
-      icon: <HiShieldCheck className="text-5xl" />,
-      title: '100% Garantido',
+      icon: <HiCode className="text-5xl" />,
+      title: 'Qualidade Técnica',
       description:
-        'Se não ficar satisfeito, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.',
+        'Código limpo, organizado e seguindo as melhores práticas da indústria. Performance 95+ garantida em todos os projetos.',
       color: '#0B63FF',
     },
     {
       icon: <HiClock className="text-5xl" />,
-      title: 'Entrega no Prazo',
+      title: 'Prazos Transparentes',
       description:
-        'Cumprimos rigorosamente o cronograma. Atrasos? Você recebe compensação financeira.',
+        'Cronograma definido no início do projeto com atualizações constantes. Comunicação clara sobre cada etapa do desenvolvimento.',
       color: '#3B82F6',
     },
     {
-      icon: <HiTrendingUp className="text-5xl" />,
-      title: 'Resultados Mensuráveis',
+      icon: <HiSupport className="text-5xl" />,
+      title: 'Suporte Incluso',
       description:
-        'Garantimos métricas de performance: 95+ no PageSpeed, carregamento < 3s, SEO otimizado.',
+        'Suporte técnico de 30 dias após entrega do projeto. Ajustes e correções inclusos no período de garantia.',
       color: '#60A5FA',
     },
     {
-      icon: <HiRefresh className="text-5xl" />,
-      title: 'Revisões Ilimitadas',
+      icon: <HiShieldCheck className="text-5xl" />,
+      title: 'Satisfação do Cliente',
       description:
-        'Durante o projeto, você tem revisões ilimitadas até ficar 100% satisfeito com o resultado.',
+        'Revisões durante o projeto até aprovação final. Trabalho colaborativo para garantir que o resultado atenda suas expectativas.',
       color: '#93C5FD',
     },
   ]
@@ -61,29 +61,32 @@ const Guarantee = () => {
           transition={{ duration: 0.5 }}
         >
           <span className="text-white/80 font-inter font-semibold text-sm uppercase tracking-wider">
-            Nossa Garantia
+            Nossos Compromissos
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space mt-4 mb-6 text-white">
-            Compromisso com a
+            Trabalho com
             <br />
-            <span className="text-white">Excelência</span>
+            <span className="text-white">Transparência</span>
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-3xl mx-auto font-inter">
-            Seu sucesso é nossa prioridade. Por isso, oferecemos garantias
-            sólidas que demonstram nossa confiança no trabalho que entregamos.
+            Compromissos claros que garantem a qualidade e o sucesso do seu
+            projeto digital.
           </p>
         </motion.div>
 
-        {/* Guarantees Grid */}
+        {/* Commitments Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {guarantees.map((item, index) => (
+          {commitments.map((item, index) => (
             <motion.div
               key={item.title}
               className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center card-hover border border-white/20"
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+              whileHover={{
+                y: -10,
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              }}
             >
               <motion.div
                 className="text-white mb-6 flex justify-center"
@@ -95,25 +98,35 @@ const Guarantee = () => {
               <h3 className="text-xl font-bold font-space mb-4 text-white">
                 {item.title}
               </h3>
-              <p className="text-white/80 font-inter leading-relaxed">
+              <p className="text-white/80 font-inter leading-relaxed text-sm">
                 {item.description}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Trust Badge */}
+        {/* Additional Info */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-16 text-center max-w-3xl mx-auto"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full border border-white/20">
-            <p className="text-white font-inter font-semibold flex items-center gap-2">
-              <HiShieldCheck className="text-2xl" />
-              Mais de 50 projetos entregues com 100% de satisfação
+          <div className="bg-white/10 backdrop-blur-sm px-8 py-6 rounded-2xl border border-white/20">
+            <h3 className="text-2xl font-bold font-space text-white mb-4">
+              Seu Sucesso é Nossa Prioridade
+            </h3>
+            <p className="text-white/80 font-inter leading-relaxed mb-6">
+              Trabalho baseado em confiança mútua, comunicação transparente e
+              compromisso com resultados. Cada projeto recebe atenção dedicada
+              do início ao fim.
             </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80 font-inter">
+              <span>✓ Reuniões de alinhamento</span>
+              <span>✓ Atualizações constantes</span>
+              <span>✓ Feedback contínuo</span>
+              <span>✓ Documentação completa</span>
+            </div>
           </div>
         </motion.div>
       </div>
