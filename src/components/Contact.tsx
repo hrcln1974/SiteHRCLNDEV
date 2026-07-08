@@ -59,11 +59,11 @@ const Contact = () => {
       link: 'mailto:contato@hrclndev.com.br',
     },
     {
-      icon: <HiPhone className="text-3xl" />,
-      title: 'Telefone',
-      info: '+55 (21) 99999-9999',
-      link: 'tel:+5521999999999',
-    },
+    icon: <HiPhone className="text-3xl" />,
+    title: 'Telefone',
+    info: '+55 (21) 99152-5359',      // ✅ SEU NÚMERO
+    link: 'tel:+5521991525359',        // ✅ SEU NÚMERO (sem formatação)
+  },
     {
       icon: <HiLocationMarker className="text-3xl" />,
       title: 'Localização',
