@@ -10,11 +10,36 @@ const Stats = () => {
     threshold: 0.1,
   })
 
+  // Estatísticas REAIS da HRCLN DEV
   const stats = [
-    { end: 50, suffix: '+', label: 'Projetos Concluídos', duration: 2 },
-    { end: 98, suffix: '%', label: 'Satisfação dos Clientes', duration: 2.5 },
-    { end: 95, suffix: '+', label: 'Score Performance', duration: 2 },
-    { end: 24, suffix: '/7', label: 'Suporte Disponível', duration: 1.5 },
+    { 
+      end: 6, 
+      suffix: '+', 
+      label: 'Projetos Desenvolvidos', 
+      duration: 2,
+      description: 'Sites e sistemas criados'
+    },
+    { 
+      end: 95, 
+      suffix: '+', 
+      label: 'Performance Score', 
+      duration: 2.5,
+      description: 'PageSpeed Insights'
+    },
+    { 
+      end: 100, 
+      suffix: '%', 
+      label: 'Código Próprio', 
+      duration: 2,
+      description: 'Desenvolvimento autoral'
+    },
+    { 
+      end: 2024, 
+      suffix: '', 
+      label: 'Fundação', 
+      duration: 1.5,
+      description: 'HRCLN DEV nasceu'
+    },
   ]
 
   return (
@@ -24,6 +49,23 @@ const Stats = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-effect -z-10" />
 
       <div className="container mx-auto px-4" ref={ref}>
+        {/* Section Title (opcional) */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="text-primary font-inter font-semibold text-sm uppercase tracking-wider">
+            Em Números
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-space mt-4 mb-4">
+            Resultados{' '}
+            <span className="gradient-text">Reais</span>
+          </h2>
+        </motion.div>
+
+        {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <StatCounter
@@ -34,17 +76,37 @@ const Stats = () => {
             />
           ))}
         </div>
+
+        {/* Additional Info */}
+        <motion.div
+          className="mt-16 text-center max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p className="text-gray font-inter leading-relaxed">
+            Cada projeto é desenvolvido com dedicação, utilizando as melhores práticas 
+            de desenvolvimento web, design responsivo e otimização de performance.
+          </p>
+        </motion.div>
       </div>
     </section>
   )
 }
 
+// Componente de Contador Animado
 const StatCounter = ({
   stat,
   index,
   inView,
 }: {
-  stat: { end: number; suffix: string; label: string; duration: number }
+  stat: { 
+    end: number
+    suffix: string
+    label: string
+    duration: number
+    description: string
+  }
   index: number
   inView: boolean
 }) => {
@@ -58,7 +120,7 @@ const StatCounter = ({
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp
-         const progress = (timestamp - startTime) / (stat.duration * 1000)
+      const progress = (timestamp - startTime) / (stat.duration * 1000)
 
       if (progress < 1) {
         setCount(Math.floor(stat.end * progress))
@@ -75,17 +137,26 @@ const StatCounter = ({
 
   return (
     <motion.div
-      className="text-center"
+      className="text-center glass p-6 rounded-2xl card-hover"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
     >
-      <div className="text-5xl md:text-6xl font-bold font-space gradient-text mb-2">
+      {/* Número */}
+      <div className="text-4xl md:text-5xl lg:text-6xl font-bold font-space gradient-text mb-2">
         {count}
         {stat.suffix}
       </div>
-      <div className="text-gray font-inter text-sm md:text-base">
+      
+      {/* Label Principal */}
+      <div className="text-white font-inter text-sm md:text-base font-semibold mb-1">
         {stat.label}
+      </div>
+
+      {/* Descrição */}
+      <div className="text-gray font-inter text-xs">
+        {stat.description}
       </div>
     </motion.div>
   )
