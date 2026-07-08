@@ -61,14 +61,14 @@ const Contact = () => {
     {
       icon: <HiPhone className="text-3xl" />,
       title: 'Telefone',
-      info: '+55 (11) 99999-9999',
-      link: 'tel:+5511999999999',
+      info: '+55 (21) 99999-9999',
+      link: 'tel:+5521999999999',
     },
     {
       icon: <HiLocationMarker className="text-3xl" />,
       title: 'Localização',
-      info: 'São Paulo, SP - Brasil',
-      link: '#',
+      info: 'Teresópolis, RJ - Brasil',
+      link: 'https://www.google.com/maps/place/Teresópolis,+RJ',
     },
   ]
 
@@ -101,7 +101,7 @@ const Contact = () => {
             Vamos Conversar sobre{' '}
             <span className="gradient-text">Seu Projeto</span>
           </h2>
-                    <p className="text-gray text-lg md:text-xl max-w-3xl mx-auto font-inter">
+          <p className="text-gray text-lg md:text-xl max-w-3xl mx-auto font-inter">
             Estamos prontos para transformar sua ideia em realidade. Entre em
             contato e receba uma proposta personalizada.
           </p>
@@ -123,6 +123,8 @@ const Contact = () => {
                 <motion.a
                   key={item.title}
                   href={item.link}
+                  target={item.title === 'Localização' ? '_blank' : undefined}
+                  rel={item.title === 'Localização' ? 'noopener noreferrer' : undefined}
                   className="glass p-6 rounded-xl flex items-center gap-4 card-hover group"
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -182,6 +184,23 @@ const Contact = () => {
                 <p>Domingo: Fechado</p>
               </div>
             </motion.div>
+
+            {/* Location Info */}
+            <motion.div
+              className="mt-8 glass p-6 rounded-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration:              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <h4 className="text-lg font-bold font-space mb-4 text-white">
+                Atendimento Regional
+              </h4>
+              <div className="space-y-2 text-gray font-inter text-sm">
+                <p>📍 <strong className="text-white">Base:</strong> Teresópolis, RJ</p>
+                <p>🌎 <strong className="text-white">Atendimento:</strong> Todo Brasil</p>
+                <p>💻 <strong className="text-white">Modalidade:</strong> Remoto e Presencial</p>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -224,7 +243,7 @@ const Contact = () => {
                   placeholder="Seu nome"
                 />
                 {errors.name && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="text-red-500 text-sm mt-1 block">
                     {errors.name.message}
                   </span>
                 )}
@@ -248,7 +267,7 @@ const Contact = () => {
                   placeholder="seu@email.com"
                 />
                 {errors.email && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="text-red-500 text-sm mt-1 block">
                     {errors.email.message}
                   </span>
                 )}
@@ -263,10 +282,10 @@ const Contact = () => {
                   type="tel"
                   {...register('phone', { required: 'Telefone é obrigatório' })}
                   className="w-full px-4 py-3 bg-white/5 border border-gray/20 rounded-lg text-white font-inter focus:outline-none focus:border-primary transition-colors"
-                  placeholder="(11) 99999-9999"
+                  placeholder="(21) 99999-9999"
                 />
                 {errors.phone && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="text-red-500 text-sm mt-1 block">
                     {errors.phone.message}
                   </span>
                 )}
@@ -291,7 +310,7 @@ const Contact = () => {
                   ))}
                 </select>
                 {errors.service && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="text-red-500 text-sm mt-1 block">
                     {errors.service.message}
                   </span>
                 )}
@@ -309,7 +328,7 @@ const Contact = () => {
                   placeholder="Conte-nos sobre seu projeto..."
                 />
                 {errors.message && (
-                  <span className="text-red-500 text-sm mt-1">
+                  <span className="text-red-500 text-sm mt-1 block">
                     {errors.message.message}
                   </span>
                 )}
@@ -325,6 +344,11 @@ const Contact = () => {
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
               </motion.button>
+
+              {/* Privacy Note */}
+              <p className="mt-4 text-gray text-xs font-inter text-center">
+                Seus dados estão protegidos e não serão compartilhados com terceiros.
+              </p>
             </form>
           </motion.div>
         </div>

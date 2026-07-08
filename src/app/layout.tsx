@@ -26,27 +26,28 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hrclndev.com.br'),
+  metadataBase: new URL('https://site-hrclndev.vercel.app'),
   title: {
-    default: 'HRCLN DEV - Desenvolvimento Web Premium | Sites, Sistemas e Soluções Digitais',
+    default: 'HRCLN DEV - Desenvolvimento Web Premium | Teresópolis RJ',
     template: '%s | HRCLN DEV',
   },
   description:
-    'Desenvolvimento web premium especializado em Sites Institucionais, Landing Pages, Lojas Virtuais, Sistemas Web, SEO e Performance. Código com propósito. Soluções que transformam.',
+    'Desenvolvimento web premium em Teresópolis RJ. Sites Institucionais, Landing Pages, Lojas Virtuais, Sistemas Web, SEO e Performance. Código com propósito. Soluções que transformam.',
   keywords: [
-    'desenvolvimento web',
-    'sites institucionais',
-    'landing pages',
-    'lojas virtuais',
+    'desenvolvimento web teresópolis',
+    'sites teresópolis rj',
+    'desenvolvedor web teresópolis',
+    'landing pages teresópolis',
+    'lojas virtuais teresópolis',
     'sistemas web',
-    'SEO',
+    'SEO teresópolis',
     'performance web',
     'Next.js',
     'React',
-    'desenvolvimento premium',
     'HRCLN DEV',
+    'Marcos Herculano',
   ],
-  authors: [{ name: 'HRCLN DEV' }],
+  authors: [{ name: 'Marcos Herculano - HRCLN DEV' }],
   creator: 'HRCLN DEV',
   publisher: 'HRCLN DEV',
   robots: {
@@ -63,11 +64,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://hrclndev.com.br',
+    url: 'https://site-hrclndev.vercel.app',
     siteName: 'HRCLN DEV',
-    title: 'HRCLN DEV - Desenvolvimento Web Premium',
+    title: 'HRCLN DEV - Desenvolvimento Web Premium | Teresópolis RJ',
     description:
-      'Código com propósito. Soluções que transformam. Desenvolvimento web de alto padrão.',
+      'Código com propósito. Soluções que transformam. Desenvolvimento web de alto padrão em Teresópolis RJ.',
     images: [
       {
         url: '/og-image.jpg',
@@ -91,7 +92,7 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   alternates: {
-    canonical: 'https://hrclndev.com.br',
+    canonical: 'https://site-hrclndev.vercel.app',
   },
   verification: {
     google: 'your-google-verification-code',
@@ -101,27 +102,47 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'LocalBusiness',
   name: 'HRCLN DEV',
-  url: 'https://hrclndev.com.br',
-  logo: 'https://hrclndev.com.br/logo.png',
-  description:
-    'Desenvolvimento web premium especializado em Sites Institucionais, Landing Pages, Lojas Virtuais, Sistemas Web, SEO e Performance.',
+  image: 'https://site-hrclndev.vercel.app/logo.png',
+  '@id': 'https://site-hrclndev.vercel.app',
+  url: 'https://site-hrclndev.vercel.app',
+  telephone: '+55-21-99999-9999',
+  priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '',
+    addressLocality: 'Teresópolis',
+    addressRegion: 'RJ',
+    postalCode: '25950-000',
     addressCountry: 'BR',
   },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+55-11-99999-9999',
-    contactType: 'Customer Service',
-    availableLanguage: ['Portuguese'],
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -22.4149,
+    longitude: -42.9664,
   },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
   sameAs: [
     'https://linkedin.com/company/hrclndev',
-    'https://github.com/hrclndev',
+    'https://github.com/Hercullanohrcln',
     'https://instagram.com/hrclndev',
   ],
+  description:
+    'Desenvolvimento web premium especializado em Sites Institucionais, Landing Pages, Lojas Virtuais, Sistemas Web, SEO e Performance em Teresópolis RJ.',
 }
 
 export default function RootLayout({
