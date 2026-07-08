@@ -11,34 +11,34 @@ const Timeline = () => {
 
   const milestones = [
     {
-      year: '2020',
-      title: 'Fundação',
+      year: '2025',
+      title: 'Início da Jornada',
       description:
-        'HRCLN DEV nasce com o propósito de revolucionar o desenvolvimento web no Brasil.',
+        'Fundação da HRCLN DEV com foco em desenvolvimento web moderno e soluções digitais de qualidade.',
     },
     {
-      year: '2021',
-      title: '10 Projetos',
+      year: '2025',
+      title: 'Primeiros Projetos',
       description:
-        'Alcançamos a marca de 10 projetos entregues com excelência e satisfação de 100%.',
+        'Desenvolvimento dos primeiros sites e landing pages com tecnologias modernas como Next.js e React.',
     },
     {
-      year: '2022',
-      title: 'Expansão',
+      year: '2025-2026',
+      title: 'Crescimento',
       description:
-        'Expandimos nosso portfólio para e-commerce e sistemas web complexos.',
+        'Expansão do portfólio com projetos de e-commerce, sistemas web e otimização de performance.',
     },
     {
-      year: '2023',
-      title: '50+ Clientes',
+          year: '2026',
+      title: 'Consolidação',
       description:
-        'Superamos 50 clientes satisfeitos e nos tornamos referência em qualidade.',
+        'Consolidação da marca HRCLN DEV no mercado de desenvolvimento web com foco em qualidade e resultados.',
     },
     {
-      year: '2024',
-      title: 'Inovação',
+      year: 'Futuro',
+      title: 'Próximos Passos',
       description:
-        'Implementamos IA e automações avançadas em nossos projetos.',
+        'Expandir serviços, atender mais clientes e continuar entregando soluções web de alto padrão.',
     },
   ]
 
@@ -59,11 +59,11 @@ const Timeline = () => {
             Nossa Jornada
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space mt-4 mb-6">
-            História de{' '}
-            <span className="gradient-text">Crescimento</span>
+            Construindo o{' '}
+            <span className="gradient-text">Futuro</span>
           </h2>
           <p className="text-gray text-lg md:text-xl max-w-3xl mx-auto font-inter">
-            Cada marco representa nosso compromisso com a excelência e inovação.
+            Uma história em construção, focada em qualidade, inovação e resultados reais.
           </p>
         </motion.div>
 
@@ -76,7 +76,7 @@ const Timeline = () => {
           <div className="space-y-12">
             {milestones.map((milestone, index) => (
               <motion.div
-                key={milestone.year}
+                key={index}
                 className={`flex items-center gap-8 ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
@@ -90,13 +90,13 @@ const Timeline = () => {
                     className="glass p-6 rounded-xl inline-block card-hover"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-primary font-space font-bold text-3xl mb-2">
+                    <div className="text-primary font-space font-bold text-2xl mb-2">
                       {milestone.year}
                     </div>
                     <h3 className="text-white font-space font-bold text-xl mb-2">
                       {milestone.title}
                     </h3>
-                    <p className="text-gray font-inter">
+                    <p className="text-gray font-inter text-sm">
                       {milestone.description}
                     </p>
                   </motion.div>
@@ -119,6 +119,26 @@ const Timeline = () => {
             ))}
           </div>
         </div>
+
+        {/* CTA */}
+        <motion.div
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
+          <p className="text-gray font-inter mb-6 text-lg">
+            Quer fazer parte desta história?
+          </p>
+          <motion.a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-gradient-blue text-white rounded-full font-inter font-semibold text-lg btn-hover glow"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Iniciar Projeto Comigo
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   )

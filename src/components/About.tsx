@@ -36,14 +36,14 @@ const About = () => {
     { number: '2024', label: 'Fundação' },
   ]
 
-  const info = [
-    { label: 'Nome', value: 'Marcos Herculano' },
-    { label: 'Empresa', value: 'HRCLN DEV' },
-    { label: 'Localização', value: 'Teresópolis, RJ' },
-    { label: 'Email', value: 'contato@hrclndev.com.br' },
-    { label: 'Especialização', value: 'Desenvolvimento Web' },
-    { label: 'Disponibilidade', value: 'Projetos Novos' },
-  ]
+ const info = [
+  { label: 'Nome', value: 'Marcos Herculano' },
+  { label: 'Empresa', value: 'HRCLN DEV' },
+  { label: 'Localização', value: 'Teresópolis, RJ' },
+  { label: 'Email', value: 'contato@hrclndev.com.br' },
+  { label: 'Especialização', value: 'Desenvolvimento Web' },
+  { label: 'Disponibilidade', value: 'Novos Projetos' },
+]
 
   return (
     <section id="about" className="py-20 md:py-32 relative overflow-hidden">
@@ -70,13 +70,12 @@ const About = () => {
               soluções web modernas e de alto desempenho. Fundada por <strong className="text-white">Marcos Herculano</strong>, 
               desenvolvedor web com foco em qualidade, performance e experiência do usuário.
             </p>
-            <p className="text-gray text-lg font-inter mb-8 leading-relaxed">
-              Localizada em <strong className="text-white">Teresópolis - RJ</strong>, 
-              atendemos clientes em todo o Brasil, desenvolvendo sites institucionais, 
-              landing pages, e-commerce e sistemas web com tecnologias modernas como 
-              Next.js, React e TypeScript.
-            </p>
-
+          <p className="text-gray text-lg font-inter mb-8 leading-relaxed">
+  Localizada em <strong className="text-white">Teresópolis - RJ</strong>, 
+  atendemos clientes em todo o Brasil, desenvolvendo sites institucionais, 
+  landing pages, e-commerce e sistemas web com tecnologias modernas como 
+  Next.js, React e TypeScript.
+</p>
             {/* Info Grid */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               {info.map((item, index) => (
