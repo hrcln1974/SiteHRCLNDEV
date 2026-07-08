@@ -107,7 +107,7 @@ const jsonLd = {
   image: 'https://site-hrclndev.vercel.app/logo.png',
   '@id': 'https://site-hrclndev.vercel.app',
   url: 'https://site-hrclndev.vercel.app',
-  telephone: '+55-21-99999-9999',
+  telephone: '+55-21-99152-5359',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
