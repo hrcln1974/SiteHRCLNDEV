@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const WhatsAppButton = () => {
-  const phoneNumber = '5511991525359' // Substitua pelo número real
+  const phoneNumber = '5521991525359' // Substitua pelo número real
   const message = 'Olá! Gostaria de saber mais sobre os serviços da HRCLN DEV.'
 
   const handleClick = () => {
