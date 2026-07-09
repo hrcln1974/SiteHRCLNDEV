@@ -71,16 +71,16 @@ const Portfolio = () => {
       github: null, // Projeto cliente real - sem GitHub público
     },
     {
-      id: 6,
-      title: 'HRCLN DEV Portfolio',
-      category: 'sistema',
-      description:
-        'Portfólio profissional premium desenvolvido com Next.js 14, TypeScript e Tailwind CSS para apresentação de soluções web.',
-      image: '/projects/hrcln-dev.png',
-      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind'],
-      link: 'https://hrclndev.vercel.app',
-      github: 'https://github.com/Hercullanohrcln',
-    },
+  id: 6,
+  title: 'Catálogo',
+  category: 'sistema',
+  description:
+    'Catálogo desenvolvido com HTML, CSS e JavaScript puro.',
+  image: '/projects/hrcln-dev.png',
+  tags: ['HTML', 'CSS', 'JavaScript'],
+  link: 'https://github.com/Hercullanohrcln',
+  github: 'https://github.com/Hercullanohrcln',
+}
   ]
 
   const categories = [

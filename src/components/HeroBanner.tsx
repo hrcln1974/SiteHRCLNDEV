@@ -93,7 +93,6 @@ const HeroBanner = () => {
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                   <span className="text-white font-inter font-semibold text-sm">
-                    🔥 3 Vagas Disponíveis em Janeiro 2024
                   </span>
                 </div>
               </motion.div>
