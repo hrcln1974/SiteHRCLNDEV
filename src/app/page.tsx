@@ -16,7 +16,6 @@ import Testimonials from '@/components/Testimonials'
 import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
 import Guarantee from '@/components/Guarantee'
-import Urgency from '@/components/Urgency'
 import CTA from '@/components/CTA'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -58,7 +57,6 @@ export default function Home() {
       <Pricing />
       <FAQ />
       <Guarantee />
-      <Urgency />
       <CTA />
       <Contact />
       <Footer />
