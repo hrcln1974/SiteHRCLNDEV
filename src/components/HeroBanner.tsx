@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import { ArrowRight, Code, Sparkles } from 'lucide-react';
 
 export default function HeroBanner() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
@@ -28,19 +27,8 @@ export default function HeroBanner() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Logo HRCLN */}
-          <div className="mb-8 flex justify-center animate-fade-in">
-            <Image
-              src="/images/logo-hrcln.png"
-              alt="HRCLN Logo"
-              width={200}
-              height={80}
-              className="drop-shadow-2xl"
-              priority
-            />
-          </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slide-up mt-24 md:mt-32">
             Transformando Ideias
             <br />
             em <span className="text-blue-400">Soluções Digitais</span>

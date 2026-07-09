@@ -1,5 +1,4 @@
 'use client'
-
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { HiExternalLink } from 'react-icons/hi'
@@ -11,7 +10,6 @@ const Portfolio = () => {
     triggerOnce: true,
     threshold: 0.1,
   })
-
   const [filter, setFilter] = useState('all')
 
   const projects = [
@@ -19,8 +17,7 @@ const Portfolio = () => {
       id: 1,
       title: 'Daily Fashion',
       category: 'ecommerce',
-      description:
-        'E-commerce moderno desenvolvido com foco em experiência do usuário, design responsivo e apresentação visual de produtos de moda.',
+      description: 'E-commerce moderno desenvolvido com foco em experiência do usuário, design responsivo e apresentação visual de produtos de moda.',
       image: '/projects/daily-fashion.png',
       tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive'],
       link: 'https://hercullanohrcln.github.io/site-daily-fashion/',
@@ -30,8 +27,7 @@ const Portfolio = () => {
       id: 2,
       title: 'Atelier do Sabor',
       category: 'site',
-      description:
-        'Site institucional elegante para apresentação de produtos artesanais, com design clean e navegação intuitiva.',
+      description: 'Site institucional elegante para apresentação de produtos artesanais, com design clean e navegação intuitiva.',
       image: '/projects/atelier-do-sabor.png',
       tags: ['HTML5', 'CSS3', 'JavaScript', 'UI Design'],
       link: 'https://hercullanohrcln.github.io/atelier-do-sabor/',
@@ -41,8 +37,7 @@ const Portfolio = () => {
       id: 3,
       title: 'Site Pastor Júlio',
       category: 'landing',
-      description:
-        'Landing page institucional desenvolvida para apresentação ministerial, conteúdo religioso e comunicação digital.',
+      description: 'Landing page institucional desenvolvida para apresentação ministerial, conteúdo religioso e comunicação digital.',
       image: '/projects/pastor-julio.png',
       tags: ['HTML5', 'CSS3', 'JavaScript', 'SEO'],
       link: 'https://hercullanohrcln.github.io/site-pastor-julio/',
@@ -52,8 +47,7 @@ const Portfolio = () => {
       id: 4,
       title: 'Simulador de Empréstimo',
       category: 'sistema',
-      description:
-        'Aplicação web interativa para simulação de empréstimos com cálculos em tempo real e interface simplificada.',
+      description: 'Aplicação web interativa para simulação de empréstimos com cálculos em tempo real e interface simplificada.',
       image: '/projects/emprestimo.png',
       tags: ['JavaScript', 'HTML5', 'CSS3', 'Cálculos'],
       link: 'https://hercullanohrcln.github.io/emprestimo/',
@@ -63,193 +57,127 @@ const Portfolio = () => {
       id: 5,
       title: 'Auto Elétrica Huebra',
       category: 'site',
-      description:
-        'Site comercial profissional desenvolvido para empresa do segmento automotivo, com foco em conversão e SEO local.',
+      description: 'Site comercial profissional desenvolvido para empresa do segmento automotivo, com foco em conversão e SEO local.',
       image: '/projects/huebra.png',
       tags: ['HTML5', 'CSS3', 'SEO', 'Comercial'],
       link: 'https://autoeletricahuebra.com',
-      github: null, // Projeto cliente real - sem GitHub público
+      github: null,
     },
     {
-  id: 6,
-  title: 'Catálogo',
-  category: 'sistema',
-  description:
-    'Catálogo desenvolvido com HTML, CSS e JavaScript puro.',
-  image: '/projects/hrcln-dev.png',
-  tags: ['HTML', 'CSS', 'JavaScript'],
-  link: 'https://github.com/Hercullanohrcln',
-  github: 'https://github.com/Hercullanohrcln',
-}
+      id: 6,
+      title: 'Catálogo HRCLN',
+      category: 'sistema',
+      description: 'Catálogo interativo desenvolvido com HTML, CSS e JavaScript puro.',
+      image: '/projects/hrcln-dev.png',
+      tags: ['HTML5', 'CSS3', 'JavaScript'],
+      link: 'https://hercullanohrcln.github.io/catalogo-hrcln/',
+      github: null,
+    },
   ]
 
   const categories = [
-    { id: 'all', name: 'Todos' },
-    { id: 'ecommerce', name: 'E-commerce' },
-    { id: 'site', name: 'Sites' },
-    { id: 'landing', name: 'Landing Pages' },
-    { id: 'sistema', name: 'Sistemas Web' },
+    { id: 'all', label: 'Todos' },
+    { id: 'ecommerce', label: 'E-commerce' },
+    { id: 'site', label: 'Sites' },
+    { id: 'landing', label: 'Landing Pages' },
+    { id: 'sistema', label: 'Sistemas' },
   ]
 
-  const filteredProjects =
-    filter === 'all'
-      ? projects
-      : projects.filter((project) => project.category === filter)
+  const filteredProjects = filter === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === filter)
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary rounded-full blur-effect -z-10" />
-
-      <div className="container mx-auto px-4" ref={ref}>
-        {/* Section Header */}
+    <section id="portfolio" className="py-20 bg-gray-900">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <span className="text-primary font-inter font-semibold text-sm uppercase tracking-wider">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Portfólio
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-space mt-4 mb-6">
-            Projetos{' '}
-            <span className="gradient-text">Desenvolvidos</span>
           </h2>
-          <p className="text-gray text-lg md:text-xl max-w-3xl mx-auto font-inter">
-            Conheça alguns projetos desenvolvidos pela HRCLN DEV, explorando
-            tecnologias modernas, design responsivo e soluções digitais.
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Conheça alguns dos projetos que desenvolvi
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        {/* Filtros */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
-            <motion.button
+            <button
               key={category.id}
               onClick={() => setFilter(category.id)}
-              className={`px-6 py-3 rounded-full font-inter font-semibold transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full transition-all ${
                 filter === category.id
-                  ? 'bg-gradient-blue text-white glow'
-                  : 'glass-white text-gray hover:text-white'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              {category.name}
-            </motion.button>
+              {category.label}
+            </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid de Projetos */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="glass rounded-2xl overflow-hidden card-hover group"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              layout
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all"
             >
-              {/* Project Image */}
-              <div className="relative h-64 bg-gradient-dark overflow-hidden">
-                {/* Placeholder - será substituído por imagem real */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5">
-                  <div className="text-6xl">
-                    {project.category === 'ecommerce' && '🛍️'}
-                    {project.category === 'site' && '🌐'}
-                    {project.category === 'landing' && '📄'}
-                    {project.category === 'sistema' && '⚙️'}
-                  </div>
-                </div>
-                
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.3 }}
-                    aria-label="Ver projeto"
-                  >
-                    <HiExternalLink className="text-white text-xl" />
-                  </motion.a>
-                  
-                  {project.github && (
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center"
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.3 }}
-                      aria-label="Ver código no GitHub"
-                    >
-                      <FaGithub className="text-white text-xl" />
-                    </motion.a>
-                  )}
-                </div>
-
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4 px-3 py-1 bg-primary/90 backdrop-blur-sm rounded-full">
-                  <span className="text-white text-xs font-inter font-semibold uppercase">
-                    {categories.find(cat => cat.id === project.category)?.name}
-                  </span>
-                </div>
+              <div className="relative h-48 bg-gray-700">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
-
-              {/* Project Info */}
               <div className="p-6">
-                <h3 className="text-xl font-bold font-space mb-2 text-white group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-gray font-inter text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-inter font-medium"
+                      className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
+                <div className="flex gap-4">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                      <HiExternalLink /> Ver projeto
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors"
+                    >
+                      <FaGithub /> GitHub
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <p className="text-gray font-inter mb-6">
-            Gostou dos projetos? Vamos criar algo incrível juntos!
-          </p>
-          <motion.a
-            href="#contact"
-            className="inline-block px-8 py-4 bg-gradient-blue text-white rounded-full font-inter font-semibold text-lg btn-hover glow"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Iniciar Meu Projeto
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   )
