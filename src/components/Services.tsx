@@ -53,13 +53,7 @@ const Services = () => {
         'Otimização completa para mecanismos de busca e performance web de alto nível.',
       features: ['Top Rankings', 'Speed 95+', 'Core Web Vitals'],
     },
-    {
-      icon: <HiCode className="text-5xl" />,
-      title: 'Consultoria Tech',
-      description:
-        'Consultoria especializada em arquitetura, tecnologias e melhores práticas de desenvolvimento.',
-      features: ['Arquitetura', 'Code Review', 'Mentoria'],
-    },
+   
   ]
 
   return (
